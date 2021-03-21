@@ -55,8 +55,27 @@
         [:p card-header-p "Total"]
         [:img {:src "assets/total.svg" :alt "Total icon"}]]
        [:h1 card-header-h1
-        (format-price "40000")]]]
+        (format-price total)]]]
      [:div table-container
+      [:div {:style {:display "flex"
+                     :align-items "center"
+                     :justify-content "space-between"}}
+       [:h1 {:style {:font-size "16px"
+                     :color "#24695C"}}
+        "Latest Transactions"]
+       [:div
+        [:a {:href "#transactions"
+             :on-click #(rf/dispatch [:create-transaction {:id 4
+                                                           :value 8000.00
+                                                           :name "Salary"
+                                                           :date (js/Date.)
+                                                           :type :income
+                                                           :category {:name "Finance"
+                                                                      :icon "dollar"}}])}
+         [:img {:src "assets/plus.svg"
+                :height "28px"
+                :width "28px"
+                :alt "Add transaction"}]]]]
       [:table table
        [:thead
         [:tr
@@ -71,7 +90,8 @@
            [:td table-data-title name]
            [:td (case type
                   :income table-data-income
-                  :outcome table-data-outcome)
+                  :outcome table-data-outcome
+                  table-data-income)
             (format-price value)]
            [:td table-data
             [:div table-category

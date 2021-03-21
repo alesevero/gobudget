@@ -7,6 +7,9 @@
             [app.nav.events]
             [app.nav.subs]
             [app.transactions.subs]
+            [app.transactions.events]
+            [app.auth.events]
+            [app.auth.subs]
             ; THIRD PARTY LIBS
             [re-frame.core :as rf]
             [reagent.core :as r]))

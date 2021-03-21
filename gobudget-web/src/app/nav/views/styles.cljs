@@ -22,6 +22,20 @@
            :font-size "16px"
            :transition "opacity 0.2s"
            :padding "8px"
-           :font-weight (when (= active-nav id) "bold")
+           :font-weight "normal"
            :border-bottom (when (= active-nav id) "2px solid #24695C")
            :hover {:opacity "0.6"}}})
+
+(def profile-link
+  {:style {:border "2px solid #24695C"
+           :border-radius "50px"
+           :width "40px"
+           :height "40px"
+           :margin-left "8px"
+           :display "flex"
+           :align-items "center"
+           :justify-content "center"}})
+
+(def profile-img
+  {:style {:width "35px"
+           :height "35px"}})

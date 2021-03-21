@@ -1,7 +1,9 @@
 (ns app.nav.views.authenticated
   (:require [app.nav.components.nav-item :refer [nav-item]]
             [re-frame.core :as rf]
-            [app.nav.views.styles :refer [header]]))
+            [app.nav.views.styles :refer [header
+                                          profile-link
+                                          profile-img]]))
 
 (defn authenticated
   []
@@ -13,7 +15,7 @@
                    {:id :profile
                     :name "Profile"
                     :href "#profile"
-                    :dispatch #(rf/dispatch [:set-active-nav :profile])}]]
+                    :dispatch #(rf/dispatch [:log-out])}]]
     [:div header
      (for [{:keys [id name dispatch href]} nav-items]
        [nav-item {:key id
@@ -21,4 +23,9 @@
                   :name name
                   :dispatch dispatch
                   :href href
-                  :active-nav active-nav}])]))
+                  :active-nav active-nav}])
+     [:a (merge profile-link
+                {:href "#profile"
+                 :on-click #(rf/dispatch [:set-active-nav :profile])})
+      [:img (merge profile-img
+                   {:src "assets/avatar.png" :alt "Avatar"})]]]))

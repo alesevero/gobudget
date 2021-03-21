@@ -3,8 +3,8 @@
 
 (def initial-app-db {:auth {:uid nil}
                      :errors {}
-                     :nav {:active-page :transactions
-                           :active-nav :transactions
+                     :nav {:active-page :sign-up
+                           :active-nav :sign-up
                            :active-modal nil
                            :active-recipe nil
                            :active-inbox nil}
