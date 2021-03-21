@@ -41,7 +41,9 @@
            :line-height "54px"}})
 
 (def table-container
-  {:style {:margin-top "64px"}})
+  {:style {:margin-top "64px"
+           :display "flex"
+           :flex-direction "column"}})
 
 (def table
   {:style {:width "100%"
@@ -75,6 +77,9 @@
   {:style (merge (:style table-data)
                  {:color "#363F5F"
                   :border-radius "8px 0 0 8px"})})
+
+(def table-category
+  {:style {:display "flex"}})
 
 (def table-data-date
   {:style (merge (:style table-data)

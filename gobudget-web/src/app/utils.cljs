@@ -1,5 +1,4 @@
-(ns app.utils
-  (:require [reagent.format :refer [currency-format]]))
+(ns app.utils)
 
 (defn format-date
   [date]

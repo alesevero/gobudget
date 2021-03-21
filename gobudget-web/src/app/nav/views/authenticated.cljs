@@ -1,7 +1,7 @@
 (ns app.nav.views.authenticated
   (:require [app.nav.components.nav-item :refer [nav-item]]
             [re-frame.core :as rf]
-            [app.nav.views.styles :refer [container header]]))
+            [app.nav.views.styles :refer [header]]))
 
 (defn authenticated
   []

@@ -12,7 +12,8 @@
                                                    table-data-title
                                                    table-data-income
                                                    table-data-outcome
-                                                   table-data-date]]
+                                                   table-data-date
+                                                   table-category]]
             [app.utils :refer [format-price format-date]]
             [re-frame.core :as rf]))
 
@@ -72,5 +73,9 @@
                   :income table-data-income
                   :outcome table-data-outcome)
             (format-price value)]
-           [:td table-data category]
+           [:td table-data
+            [:div table-category
+             [:img {:src (str "assets/" (:icon category) ".svg")
+                    :alt "Category icon"}]
+             [:p {:style {:margin-left "8px"}} (:name category)]]]
            [:td table-data-date (format-date date)]])]]]]))
