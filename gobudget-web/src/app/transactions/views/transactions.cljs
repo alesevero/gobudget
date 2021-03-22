@@ -62,6 +62,7 @@
                      :align-items "center"
                      :justify-content "space-between"}}
        [:h1 {:style {:font-size "16px"
+                     :font-weight "400"
                      :color "#24695C"}}
         "Latest Transactions"]
        [:div
