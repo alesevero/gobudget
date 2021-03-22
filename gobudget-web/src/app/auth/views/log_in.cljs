@@ -23,7 +23,8 @@
 
 (defn form
   []
-  (let [initial-values {:email "" :password ""}
+  (let [initial-values {:email "alexandre@example.com"
+                        :password "password"}
         values (r/atom initial-values)]
     (fn []
       [:div form-container

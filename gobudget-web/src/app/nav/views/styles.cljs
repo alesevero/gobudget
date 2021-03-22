@@ -26,8 +26,11 @@
            :border-bottom (when (= active-nav id) "2px solid #24695C")
            :hover {:opacity "0.6"}}})
 
-(def profile-link
-  {:style {:border "2px solid #24695C"
+(defn profile-link
+  [active-nav]
+  {:style {:border (if (= :profile active-nav)
+                     "2px solid #24695C"
+                     "1px solid #24695C")
            :border-radius "50px"
            :width "40px"
            :height "40px"

@@ -12,7 +12,7 @@
                     :name "Transactions"
                     :href "#transactions"
                     :dispatch #(rf/dispatch [:set-active-nav :transactions])}
-                   {:id :profile
+                   {:id :sign-in
                     :name "Log out"
                     :href "#sign-in"
                     :dispatch #(rf/dispatch [:log-out])}]]
@@ -24,7 +24,7 @@
                   :dispatch dispatch
                   :href href
                   :active-nav active-nav}])
-     [:a (merge profile-link
+     [:a (merge (profile-link active-nav)
                 {:href "#profile"
                  :on-click #(rf/dispatch [:set-active-nav :profile])})
       [:img (merge profile-img

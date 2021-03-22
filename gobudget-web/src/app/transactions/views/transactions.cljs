@@ -20,13 +20,14 @@
 (defn calculate-total
   [transactions]
   (->> transactions
-       (map :value)
+       (map (fn [{:keys [value type]}] (* value (if (= :income type) 1 -1))))
        (reduce +)))
 (defn total-by-transaction-type
   [type transactions]
   (->> transactions
        (filter #(= type (:type %)))
-       calculate-total))
+       (map :value)
+       (reduce +)))
 
 (defn transactions
   []

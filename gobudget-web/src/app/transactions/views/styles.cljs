@@ -18,7 +18,7 @@
   {:style {:background (if (= type :total)
                          (if (>= total 0)
                            "#24695C"
-                           "#F9F7F6")
+                           "#e83f5b")
                          "#F9F7F6")
            :padding "22px 32px"
            :border-radius "5px"

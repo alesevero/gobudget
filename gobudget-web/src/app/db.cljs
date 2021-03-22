@@ -29,20 +29,20 @@
                                             :type :outcome
                                             :category {:name "Entertainment"
                                                        :icon "home"}}]
-                     :users {"mike@mailinator.com" {:uid "mike@mailinator.com"
-                                                    :profile {:first-name "Mike"
-                                                              :last-name "Jordan"
-                                                              :img "https://res.cloudinary.com/schae/image/upload/f_auto,h_400,q_80/v1548196567/cheffy/mike.jpg"
-                                                              :email "mike@mailinator.com"
-                                                              :password "password"}
-                                                    :role :user
-                                                    :saved #{}
-                                                    :inboxes {"jade@mailinator.com" {:id :inbox-01
-                                                                                     :updated-at 1538697210534
-                                                                                     :notifications 3}
-                                                              "mark@mailinator.com" {:id :inbox-02
-                                                                                     :notifications 6
-                                                                                     :updated-at 1538697210537}}}}})
+                     :users {"alexandre@example.com" {:uid "mike@mailinator.com"
+                                                      :profile {:first-name "Alexandre"
+                                                                :last-name "Severo"
+                                                                :img "assets/avatar.png"
+                                                                :email "alexandre@example.com"
+                                                                :password "password"}
+                                                      :role :user
+                                                      :saved #{}
+                                                      :inboxes {"jade@mailinator.com" {:id :inbox-01
+                                                                                       :updated-at 1538697210534
+                                                                                       :notifications 3}
+                                                                "mark@mailinator.com" {:id :inbox-02
+                                                                                       :notifications 6
+                                                                                       :updated-at 1538697210537}}}}})
 
 (rf/reg-event-db
  :initialize-db

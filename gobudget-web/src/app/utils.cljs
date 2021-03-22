@@ -10,7 +10,6 @@
 (defn format-price
   [amount]
   (str
-   (when (= type :outcome) "-")
    "$"
    (-> (js/Intl.NumberFormat.)
        (.format amount))))
