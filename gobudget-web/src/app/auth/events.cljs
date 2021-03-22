@@ -6,6 +6,7 @@
  (fn [{:keys [db]} [_ {:keys [first-name last-name email password]}]]
    {:db (-> db
             (assoc-in [:auth :uid] email)
+            (update-in [:errors] dissoc :email)
             (assoc-in [:users email] {:id email
                                       :profile {:first-name first-name
                                                 :last-name last-name
@@ -22,8 +23,12 @@
    (let [user (get-in db [:users email])
          correct-password? (= (get-in user [:profile :password]) password)]
      (cond
-       (not user) {:db (assoc-in db [:errors :email] "User not found")}
-       (not correct-password?) {:db (assoc-in db [:errors :email] "Wrong password")}
+       (not user) {:db (assoc-in db
+                                 [:errors :email]
+                                 "User or password are incorrect")}
+       (not correct-password?) {:db (assoc-in db
+                                              [:errors :email]
+                                              "User or password are incorrect")}
        correct-password? {:db (-> db
                                   (assoc-in [:auth :uid] email)
                                   (update-in [:errors] dissoc :email))

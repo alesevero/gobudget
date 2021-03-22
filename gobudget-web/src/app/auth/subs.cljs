@@ -11,3 +11,8 @@
  (fn [db _]
    (let [uid (get-in db [:auth :uid])]
      (get-in db [:users uid :profile]))))
+
+(reg-sub
+ :errors
+ (fn [db _]
+   (:errors db)))

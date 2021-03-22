@@ -5,14 +5,14 @@
             [re-frame.core :as rf]))
 
 (defn header
-  [navigation]
+  [navigation logged-in?]
   [:div container
-   [:img {:src "assets/logo.svg" :alt "GoBudget"}]
+   (when logged-in?  [:img {:src "assets/logo.svg" :alt "GoBudget"}])
    [navigation]])
 
 (defn nav
   []
   (let [logged-in? @(rf/subscribe [:logged-in?])]
     (if logged-in?
-      [header authenticated]
-      [header public])))
+      [header authenticated logged-in?]
+      [header public logged-in?])))

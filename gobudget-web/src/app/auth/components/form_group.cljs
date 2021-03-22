@@ -6,7 +6,8 @@
                  :flex-direction "column"
                  :margin-bottom "16px"}}
    [:label {:label-for id
-            :style {:color "#24695C"}}
+            :style {:color "#24695C"
+                    :padding "0 0 4px 0"}}
     label]
    [:input {:id id
             :type type
