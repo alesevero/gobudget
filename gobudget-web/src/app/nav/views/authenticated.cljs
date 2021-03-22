@@ -13,8 +13,8 @@
                     :href "#transactions"
                     :dispatch #(rf/dispatch [:set-active-nav :transactions])}
                    {:id :profile
-                    :name "Profile"
-                    :href "#profile"
+                    :name "Log out"
+                    :href "#sign-in"
                     :dispatch #(rf/dispatch [:log-out])}]]
     [:div header
      (for [{:keys [id name dispatch href]} nav-items]
