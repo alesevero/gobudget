@@ -14,7 +14,7 @@
             [re-frame.core :as rf]
             [reagent.core :as r]))
 
-(defn app
+(defn- app
   []
   (let [active-page @(rf/subscribe [:active-nav])]
     [:div {:style {:width "100%"

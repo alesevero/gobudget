@@ -9,9 +9,7 @@
 (def card-container
   {:style {:display "grid"
            :grid-template-columns "repeat(3, 1fr)"
-           :grid-gap "32px"
-          ;;  :margin-top "-150px"
-           }})
+           :grid-gap "32px"}})
 
 (defn card
   [type total]

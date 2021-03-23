@@ -16,3 +16,7 @@
  :errors
  (fn [db _]
    (:errors db)))
+
+(reg-sub
+ :modal
+ (fn [db _] (:modal db)))

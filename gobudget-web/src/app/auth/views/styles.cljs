@@ -32,6 +32,7 @@
            :padding "8px"
            :background-color "#24695C"
            :color "#F0F2F5"}})
+
 (defn error-message
   [message]
   [:p {:style {:font-size "16px"

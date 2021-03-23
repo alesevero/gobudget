@@ -13,22 +13,19 @@
                                             :name "Salary"
                                             :date (js/Date.)
                                             :type :income
-                                            :category {:name "Finance"
-                                                       :icon "dollar"}}
+                                            :category "Finance"}
                                            {:id 2
                                             :value 45.00
                                             :name "Netflix"
                                             :date (js/Date.)
                                             :type :outcome
-                                            :category {:name "Entertainment"
-                                                       :icon "home"}}
+                                            :category "Entertainment"}
                                            {:id 3
                                             :value 9.90
                                             :name "Amazon Prime"
                                             :date (js/Date.)
                                             :type :outcome
-                                            :category {:name "Entertainment"
-                                                       :icon "home"}}]
+                                            :category "Entertainment"}]
                      :users {"alexandre@example.com" {:uid "mike@mailinator.com"
                                                       :profile {:first-name "Alexandre"
                                                                 :last-name "Severo"

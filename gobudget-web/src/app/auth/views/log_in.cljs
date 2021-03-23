@@ -1,5 +1,5 @@
 (ns app.auth.views.log-in
-  (:require [app.auth.components.form-group :refer [form-group]]
+  (:require [app.components.form-group :refer [form-group]]
             [app.auth.views.styles :refer [container
                                            auth-container
                                            side-title-container

@@ -1,5 +1,5 @@
 (ns app.auth.views.profile
-  (:require [app.auth.components.form-group :refer [form-group]]
+  (:require [app.components.form-group :refer [form-group]]
             [app.auth.views.styles :refer [profile-container
                                            profile-title
                                            profile-section

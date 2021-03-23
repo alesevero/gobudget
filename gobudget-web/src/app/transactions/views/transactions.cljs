@@ -15,6 +15,8 @@
                                                    table-data-date
                                                    table-category]]
             [app.utils :refer [format-price format-date]]
+            [app.transactions.components.new-transaction :refer [new-transaction
+                                                                 open-modal]]
             [re-frame.core :as rf]))
 
 (defn calculate-total
@@ -34,6 +36,7 @@
   (let [transaction-history @(rf/subscribe [:transaction-history])
         total (calculate-total transaction-history)]
     [:div
+     [new-transaction]
      [:section card-container
       [:div (card :income 0)
        [:header card-header
@@ -67,13 +70,7 @@
         "Latest Transactions"]
        [:div
         [:a {:href "#transactions"
-             :on-click #(rf/dispatch [:create-transaction {:id 4
-                                                           :value 8000.00
-                                                           :name "Salary"
-                                                           :date (js/Date.)
-                                                           :type :income
-                                                           :category {:name "Finance"
-                                                                      :icon "dollar"}}])}
+             :on-click #(open-modal)}
          [:img {:src "assets/plus.svg"
                 :height "28px"
                 :width "28px"
@@ -97,7 +94,5 @@
             (format-price value)]
            [:td table-data
             [:div table-category
-             [:img {:src (str "assets/" (:icon category) ".svg")
-                    :alt "Category icon"}]
-             [:p {:style {:margin-left "8px"}} (:name category)]]]
+             [:p {:style {:margin-left "8px"}} category]]]
            [:td table-data-date (format-date date)]])]]]]))
