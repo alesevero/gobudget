@@ -4,6 +4,7 @@
             [app.components.buttons :refer [primary-button]]
             [app.components.modal :refer [modal-panel]]
             [app.components.radio :refer [radio]]
+            [app.components.datepicker :refer [datepicker-with-label]]
             [app.transactions.components.styles :refer [modal-container
                                                         modal-title
                                                         button-container]]
@@ -21,12 +22,14 @@
 
 (defn new-transaction-modal
   []
-  (let [values (r/atom {:value 0.0
-                        :name ""
+  (let [values (r/atom {:value 3999.99
+                        :name "Playstation 5"
                         :date (js/Date.)
                         :type :income
-                        :category ""})]
-    [:div modal-container
+                        :category "Entertainment"})]
+    [:form (merge modal-container
+                  {:on-submit #((.preventDefault %)
+                                (rf/dispatch [:create-transaction (parse-transaction @values)]))})
      [:h1 modal-title "New Transaction"]
      [form-group {:id :name
                   :label "Transaction Name"
@@ -34,19 +37,26 @@
                   :values values}]
      [form-group {:id :value
                   :label "Value"
-                  :type "number"
+                  :type "text"
                   :values values}]
      [:div {:style {:display "flex"
                     :justify-content "flex-start"
                     :margin-bottom "16px"}}
-      [radio "Income" :type :income values 1 true]
-      [radio "Outcome" :type :outcome values 2 false]]
+      [radio "Income" :type :income values]
+      [radio "Outcome" :type :outcome values]]
+     [:div.row
+      [:div.col-md-7
+       [:div {:field :datepicker
+              :id :dob
+              :date-format "yyyy/mm/dd"
+              :inline true}]]]
+     [datepicker-with-label "Transaction Date" :date values]
      [form-group {:id :category
                   :label "Category"
                   :type "text"
                   :values values}]
      [:div button-container
-      [:button (merge {:on-click #(rf/dispatch [:create-transaction (parse-transaction @values)])}
+      [:button (merge {:type "submit"}
                       primary-button)
        "Add"]]]))
 

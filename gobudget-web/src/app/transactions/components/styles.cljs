@@ -1,7 +1,8 @@
 (ns app.transactions.components.styles)
 
 (def modal-container
-  {:style {:padding "32px 32px"
+  {:style {:width "600px"
+           :padding "32px 32px"
            :background-color "#F9F7F6"
            :border-radius "16px"}})
 

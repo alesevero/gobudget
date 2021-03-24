@@ -34,6 +34,7 @@
 (defn transactions
   []
   (let [transaction-history @(rf/subscribe [:transaction-history])
+        ordered-transacations (sort-by :date transaction-history)
         total (calculate-total transaction-history)]
     [:div
      [new-transaction]
@@ -83,7 +84,7 @@
          [:th table-header "Category"]
          [:th table-header "Date"]]]
        [:tbody
-        (for [{:keys [id name value date type category]} transaction-history]
+        (for [{:keys [id name value date type category]} ordered-transacations]
           [:tr (merge table-row
                       {:key id})
            [:td table-data-title name]

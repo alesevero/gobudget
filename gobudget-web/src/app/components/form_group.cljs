@@ -16,5 +16,5 @@
             :style {:border "1px solid #969cb3"
                     :border-radius "8px"
                     :background-color "#FFF"
-                    :color "#969cb3"
+                    :color "#333"
                     :padding "8px 8px"}}]])

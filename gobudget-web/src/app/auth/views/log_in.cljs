@@ -27,7 +27,9 @@
                         :password "password"}
         values (r/atom initial-values)]
     (fn []
-      [:div form-container
+      [:form (merge  form-container
+                     {:on-submit #((.preventDefault %)
+                                   (rf/dispatch [:log-in @values]))})
        [form-group {:id :email
                     :type "email"
                     :values values
@@ -43,7 +45,7 @@
                     :on-click #(rf/dispatch [:set-active-nav :sign-up])}
                    sign-up-link)
          "New to GoBudget? Create an account!"]
-        [:button (merge {:on-click #(rf/dispatch [:log-in @values])}
+        [:button (merge {:type "submit"}
                         auth-button)
          "Sign in"]]])))
 

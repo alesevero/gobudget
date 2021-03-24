@@ -1,6 +1,8 @@
 (ns app.auth.views.sign-up
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
+            [app.validation.spec :as sc]
+            [form-validator.core :as fv]
             [app.components.form-group :refer [form-group]]
             [app.auth.views.styles :refer [container
                                            auth-container
@@ -11,7 +13,10 @@
 
 (defn sign-up
   []
-  (let [initial-values {:first-name "" :last-name "" :email "" :password ""}
+  (let [initial-values {:first-name "John"
+                        :last-name "Doe"
+                        :email "john.doe@example.com"
+                        :password "password"}
         values (r/atom initial-values)]
     (fn []
       [:div container
@@ -24,7 +29,9 @@
          [:div
           [:p {:style {:color "#969cb3"}}
            "Take your money management to the next level."]]]
-        [:div form-container
+        [:form (merge form-container
+                      {:on-submit #((.preventDefault %)
+                                    (rf/dispatch [:sign-up @values]))})
          [form-group {:id :first-name
                       :type "text"
                       :values values
@@ -48,6 +55,6 @@
                       :on-click #(rf/dispatch [:set-active-nav :sign-in])}
                      sign-up-link)
            "Already have an account? Sign in!"]
-          [:button (merge {:on-click #(rf/dispatch [:sign-up @values])}
+          [:button (merge {:type "submit"}
                           auth-button)
            "Sign up"]]]]])))
