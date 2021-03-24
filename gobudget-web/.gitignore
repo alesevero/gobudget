@@ -8,3 +8,5 @@ yarn-error.log
 report.html
 .calva/
 .lsp
+.zprintrc
+.clj-kondo

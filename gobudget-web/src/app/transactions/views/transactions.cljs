@@ -34,7 +34,7 @@
 (defn transactions
   []
   (let [transaction-history @(rf/subscribe [:transaction-history])
-        ordered-transacations (sort-by :date transaction-history)
+        ordered-transacations (rseq (sort-by :date transaction-history))
         total (calculate-total transaction-history)]
     [:div
      [new-transaction]

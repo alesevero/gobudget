@@ -1,7 +1,4 @@
-(ns app.utils
-  (:require [cljs-time.format :as format]))
-
-(def formatter (format/formatter :basic-date))
+(ns app.utils)
 
 (defn format-date
   [date]
@@ -16,10 +13,3 @@
    "$"
    (-> (js/Intl.NumberFormat.)
        (.format amount))))
-
-(defn price-color
-  [amount]
-  (if (> amount 0)
-    "#00876E"
-    "#D84B42"))
-

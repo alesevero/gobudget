@@ -1,8 +1,6 @@
 (ns app.auth.views.sign-up
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
-            [app.validation.spec :as sc]
-            [form-validator.core :as fv]
             [app.components.form-group :refer [form-group]]
             [app.auth.views.styles :refer [container
                                            auth-container

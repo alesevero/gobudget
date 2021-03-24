@@ -6,12 +6,11 @@
   [:div {:class "modal-wrapper"}
    [:div {:class "modal-backdrop"
           :on-click (fn [event]
-                      (do
-                        (rf/dispatch [:modal {:show? (not show?)
-                                              :child nil
-                                              :size :default}])
-                        (.preventDefault event)
-                        (.stopPropagation event)))}]
+                      (rf/dispatch [:modal {:show? (not show?)
+                                            :child nil
+                                            :size :default}])
+                      (.preventDefault event)
+                      (.stopPropagation event))}]
    [:div {:class "modal-child"}
     child]])
 
