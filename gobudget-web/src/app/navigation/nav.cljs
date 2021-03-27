@@ -4,8 +4,6 @@
             [app.views.navigation.nav :refer [header]]
             [re-frame.core :as rf]))
 
-
-
 (defn nav
   []
   (let [logged-in? @(rf/subscribe [:logged-in?])]

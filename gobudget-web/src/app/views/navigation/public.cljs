@@ -1,7 +1,8 @@
 (ns app.views.navigation.public
   (:require [re-frame.core :as rf]
-            [app.components.navigation.nav-item :refer [nav-item]]
-            [app.views.navigation.styles :refer [header]]))
+            [app.components.nav-item :refer [nav-item]]
+            [app.views.navigation.styles :refer [header
+                                                 link]]))
 
 (defn public
   []
@@ -21,4 +22,5 @@
                   :name name
                   :dispatch dispatch
                   :href href
-                  :active-nav active-nav}])]))
+                  :active-nav active-nav
+                  :style link}])]))

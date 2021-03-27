@@ -69,3 +69,9 @@
 
 (defn open-modal []
   (rf/dispatch [:modal {:show? true :child [new-transaction-modal]}]))
+
+
+(defn any-form
+  []
+  [:form {:on-submit #((.preventDefault %)
+                       (rf/dispatch [:create-transaction "new transaction"]))}])
