@@ -13,10 +13,14 @@
                     :name "Transactions"
                     :href "#transactions"
                     :dispatch #(rf/dispatch [:set-active-nav :transactions])}
+                   {:id :about
+                    :name "About"
+                    :href "#about"
+                    :dispatch #(rf/dispatch [:set-active-nav :about])}
                    {:id :sign-in
                     :name "Log out"
                     :href "#sign-in"
-                    :dispatch #(rf/dispatch [:log-out])}]]
+                    :dispatch #(rf/dispatch [:set-active-nav :log-out])}]]
     [:div header
      (for [{:keys [id name dispatch href]} nav-items]
        [nav-item {:key id
@@ -31,17 +35,3 @@
                  :on-click #(rf/dispatch [:set-active-nav :profile])})
       [:img (merge profile-img
                    {:src "assets/avatar.png" :alt "Avatar"})]]]))
-
-[:div {:style {:display "flex"
-               :align-items "center"
-               :justify-content "center"}}
- [:a.profile-avatar-link {:href "#profile"
-                          :on-click (.log js/console "Hello, World!")}
-  [:img {:src "assets/avatar.png"
-         :alt "Avatar"
-         :class "profile-avatar-img"}]]]
-
-[:a {:href "#profile"
-     :on-click (.log js/console "Hello, World!")}]
-
-(.log js/console "Hello, World!")
