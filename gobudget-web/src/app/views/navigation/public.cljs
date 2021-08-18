@@ -14,7 +14,11 @@
                    {:id :sign-in
                     :name "Sign In"
                     :href "#sign-in"
-                    :dispatch #(rf/dispatch [:set-active-nav :sign-in])}]]
+                    :dispatch #(rf/dispatch [:set-active-nav :sign-in])}
+                   {:id :about
+                    :name "About"
+                    :href "#about"
+                    :dispatch #(rf/dispatch [:set-active-nav :about])}]]
     [:div header
      (for [{:keys [id name dispatch href]} nav-items]
        [nav-item {:key id

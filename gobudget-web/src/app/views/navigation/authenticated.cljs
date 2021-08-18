@@ -20,7 +20,7 @@
                    {:id :sign-in
                     :name "Log out"
                     :href "#sign-in"
-                    :dispatch #(rf/dispatch [:set-active-nav :log-out])}]]
+                    :dispatch #(rf/dispatch [:log-out])}]]
     [:div header
      (for [{:keys [id name dispatch href]} nav-items]
        [nav-item {:key id
